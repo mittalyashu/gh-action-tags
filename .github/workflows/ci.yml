@@ -1,13 +1,11 @@
 name: CI
 
 on:
-  push:
-    tags:
-      - 'v*'
+  create:
 
 jobs:
   deploy:
-    if: github.event_name == 'push' && github.ref_type == 'tag' && startsWith(github.ref, 'v')
+    if: github.event_name == 'create' && github.ref_type == 'tag' && startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
 
     steps:
