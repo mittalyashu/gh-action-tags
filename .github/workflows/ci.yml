@@ -14,9 +14,9 @@ jobs:
       - name: Get the version
         id: get_version
         run: |
-          echo "event-name: ${{ github.event_name }}"
-          echo "event-ref type: ${{ github.event.ref_type }}"
-          echo "event-ref: ${{ github.event.ref }}"
+          echo "github.event_name: ${{ github.event_name }}"
+          echo "github_ref_type: ${{ github.ref_type }}"
+          echo "github.ref: ${{ github.ref }}"
           echo $VERSION_REF
           echo "VERSION=${VERSION_REF/refs\/tags\/\v}" >> $GITHUB_OUTPUT
         env:
